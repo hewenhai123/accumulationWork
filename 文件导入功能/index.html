@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+属于网站的一个模块，所以文件依赖全部丢失
+<h4 class="siteh4"><?=Yii::t('app', 'goods_imported')?></h4>
+<div class="file_import  portlet light bordered box mart25">
+    <div class="nav_fixed">
+        <div class="nav_fixed_inner">
+            <ul>
+            </ul>
+        </div>
+    </div><!-- /nav_fixed-->
+    <div class="table_box jumbotron">
+        <div class="prompt up_file_box box_hover">
+            <p class="desc"><?=Yii::t('app', 'click_upload_file')?></p>
+        </div><!-- /up_file_box-->
+        <div class="table_data table-responsive " style="display:none">
+            <table class="table table-bordered table-striped ">
+                <thead>
+                <tr>
+                    <th>Модель</th>
+                    <th>Артикул</th>
+                    <th>Бренд</th>
+                    <th>Пар в упаковке</th>
+                    <th>Вес</th>
+                    <th>Объём</th>
+                    <th>Страна изготовителя</th>
+                    <th>Вид обуви</th>
+                    <th>Категория</th>
+                    <th>Сезон</th>
+                    <th>Цвет</th>
+                    <th>Материал верха</th>
+                    <th>Материал подклада</th>
+                    <th>Материал подошвы</th>
+                    <th>Материал стельки</th>
+                    <th>Широкая нога</th>
+                    <th>Высота каблука</th>
+                    <th>Размерный ряд</th>
+                    <th>Пары в упаковке</th>
+                    <th>Группа</th>
+                    <th>Возрастная группа</th>
+                    <th>Пол ребенка</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- tbodyContent -->
+                </tbody>
+            </table>
+        </div> <!-- /data_box-->
+    </div> <!-- /table_box-->
+    <h4 class="error_report"><?=Yii::t('app', 'error_report')?>:</h4>
+    <!-- <div class="nav_fixed">
+                 <div class="nav_fixed_inner">
+                   <ul></ul>
+                 </div>
+        </div> --> <!-- /nav_fixed-->
+    <div class="report_message jumbotron">
+        <div class="report_data table-responsive " style="display:block">
+            <table class="table  ">
+                <thead>
+                <!--  <tr>
+                    <th>title001</th>
+                    <th>title001</th>
+                    <th>title001</th>
+                    <th>title001</th>
+                    <th>title001</th>
+                </tr>
+                -->
+                </thead>
+                <tbody>
+                <!-- tbodyContent -->
+                </tbody>
+            </table>
+        </div><!-- /report_data-->
+    </div><!-- /report_message-->
+    <div class="btn_box">
+        <form id="up_file_form" enctype="multipart/form-data">
+            <input type="file" name="up" class="file_module"
+                   accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                   data_url=""/>
+        </form>
+        <a class="down_template_btn btn bg-blue btn-flat margin"
+           href="/admin/static/importTemplate.xlsx"><?=Yii::t('app', 'download_template')?></a>
+        <button class="up_file_btn btn bg-blue btn-flat margin"><?=Yii::t('app', 'upload_file')?></button>
+    </div> <!-- /btn_box-->
+</div><!-- /file_import-->
+</body>
+</html>
