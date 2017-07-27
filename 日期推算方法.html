@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+可推算未来几个月指定的日期
+
+
+</body>
+<script type="text/javascript">
+    //通过设置推算出未来几个月的指定的日期
+    var str = "2017-7-1";
+    dateList(str, 5, 18);
+    function dateList(str, minDate, maxDate, incNum) {
+        minDate = zerofill(minDate);
+        var deadLine = str.split("-"), dateList = [], temp = 0;
+        for (var i = 0; i < 6; i++) {
+            var date1 = "", date2 = "";
+            if ((deadLine[1] * 1 + i) > 12) {
+                temp = temp++ < 10 ? "0" + temp : temp;
+                date1 = (deadLine[0] * 1 + 1) + "-" + temp + "-" + minDate;
+                date2 = (deadLine[0] * 1 + 1) + "-" + temp + "-" + maxDate;
+            } else {
+                if ((deadLine[1] * 1 + i) == deadLine[1] * 1) {//进行第一次判断  弥补下面程序段bug
+                    if (deadLine[2] * 1 >= maxDate) { // 对日进行判断
+                        continue;
+                    }
+                    if (deadLine[2] * 1 >= minDate && deadLine[2] * 1 <= maxDate) { //日  区间判断
+                        date2 = deadLine[0] + "-" + zerofill(deadLine[1] * 1 + i) + "-" + maxDate;
+                        dateList[dateList.length] = date2;
+                        continue;
+                    }
+                }
+                date1 = deadLine[0] + "-" + zerofill(deadLine[1] * 1 + i) + "-" + minDate;
+                date2 = deadLine[0] + "-" + zerofill(deadLine[1] * 1 + i) + "-" + maxDate;
+            }
+            dateList[dateList.length] = date1;
+            dateList[dateList.length] = date2;
+        }
+        console.log(dateList)
+    }
+    function zerofill(num) {
+        return num < 10 ? "0" + num : num;
+    }
+
+
+    //    加强版 可设置增加天数 有日期的bug 上面程序有弥补
+
+    var str = "2017-1-15";
+    dateList(str, "15", "28", 0);
+    function dateList(str, minDate, maxDate, incNum) {
+        minDate = minDate < 10 ? "0" + minDate : minDate;
+        var deadLine = str.split("-"), dateList = [], temp = 0;
+        for (var i = 0; i < 6; i++) {
+            var date1 = "", date2 = "";
+            if ((deadLine[1] * 1 + i) > 12) {
+                temp = temp++ < 10 ? "0" + temp : temp;
+                date1 = (deadLine[0] * 1 + 1) + "-" + temp + "-" + minDate;
+                date2 = (deadLine[0] * 1 + 1) + "-" + temp + "-" + maxDate;
+                date2 = incNum > 0 ? chinaIncrease(date2, incNum) : date2;
+            } else {
+                date1 = deadLine[0] + "-" + (deadLine[1] * 1 + i) + "-" + minDate;
+                date2 = deadLine[0] + "-" + (deadLine[1] * 1 + i) + "-" + maxDate;
+                date2 = incNum > 0 ? chinaIncrease(date2, incNum) : date2;
+            }
+            dateList[dateList.length] = date1;
+            dateList[dateList.length] = date2;
+        }
+        console.log(dateList)
+    }
+    function chinaIncrease(date, incNum) {
+        var formatDate = date.replace(/\-/g, "/");
+        formatDate = new Date(new Date(formatDate).getTime() + incNum * 24 * 60 * 60 * 1000);
+        formatDate = formatDate.getFullYear() + "-" + (formatDate.getMonth() * 1 + 1) + "-" + (formatDate.getDate() < 10 ? "0" + formatDate.getDate() : formatDate.getDate());
+        return formatDate;
+    }
+
+</script>
+</html>
