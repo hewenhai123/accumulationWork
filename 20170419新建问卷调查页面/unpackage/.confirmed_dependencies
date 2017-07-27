@@ -1,0 +1,14 @@
+{
+	"index.html": {
+		"resources": [
+			"css/bootstrap.min.css",
+			"img/logo1.png",
+			"css/questionnaire.css",
+			"js/questionnaire.js",
+			"index.html"
+		],
+		"refer": [
+			"index.html"
+		]
+	}
+}

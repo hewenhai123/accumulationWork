@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>品牌信息调查表</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- 引入 Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/questionnaire.css" />
+
+		<!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+		<!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+		<!--[if lt IE 9]>
+         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+	</head>
+
+	<body>
+
+		<div class="navbar">
+
+			<div class="col-xs-12 col-md-8 col-md-offset-2 qifa_head_inner">
+				<div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-8 col-lg-offset-2">
+					<a href="" class="qifa_logo ">
+						<img src="img/logo1.png " class="img-responsive" />
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="bg"></div>
+		<div id=" " class="container ">
+			<form class="form-horizontal" role="form">
+				<ul class="list-group">
+					<li class="list-group-item auto_brand">
+						<h3>关于品牌/О бренде</h3>
+						<div class="form-group">
+							<label class="col-sx-12 col-sm-3 control-label label_title">
+							<h6 class="title_ru">Описание бренда</h6>
+							<h6 class="title_cn">品牌商签名</h6>
+							<!--<p class=" _desc">(包括由品牌名称图形衍生出的标识和试用中的名称和标识图形)</p>-->
+							</label>
+							<div class="col-sx-12 col-sm-9 _content">
+								<input type="text" class="form-control" name="auto_brand-品牌商签名" placeholder="请输入品牌商签名">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label label_title">
+							<h6 class="title_ru">Описание бренда</h6>
+							<h6 class="title_cn">名称和标识图形</h6>
+							<p class=" _desc">(包括由品牌名称图形衍生出的标识和试用中的名称和标识图形)</p>
+							</label>
+							<div class="col-sm-9 _content">
+								<input type="text" class="form-control" name="auto_brand-名称和标识图形" placeholder="请输入名称和标识图形">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label label_title">
+							<h6 class="title_ru">Место происхождения</h6>
+							<h6 class="title_cn">生产地</h6>
+							</label>
+							<div class="col-sm-9 _content">
+								<input type="text" class="form-control" name="auto_brand-生产地" placeholder="请输入生产地">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label label_title">
+							<h6 class="title_ru">Описание</h6>
+							<h6 class="title_cn">品牌描述</h6>
+							</label>
+							<div class="col-sm-9 _content">
+								<input type="text" class="form-control" name="auto_brand-品牌描述" placeholder="请输入品牌描述">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label label_title">
+							<h6 class="title_ru">Преимущества бренда</h6>
+							<h6 class="title_cn">品牌特征</h6>
+							</label>
+							<div class="col-sm-9 _content">
+								<input type="text" class="form-control" name="auto_brand-品牌特征" placeholder="请输入品牌特征">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label label_title">
+							<h6 class="title_ru">Информация о производителе бренда</h6>
+							<h6 class="title_cn">品牌商信息</h6>
+							</label>
+							<div class="col-sm-9 _content">
+								<input type="text" class="form-control" name="auto_brand-品牌商信息" placeholder="请输入品牌商信息">
+							</div>
+						</div>
+					</li>
+					<li class="list-group-item about_shoes">
+						<h3>关于鞋子/Об обуви</h3>
+						<div class="form-group footwear_type">
+							<label class="col-sm-3 control-label label_title">
+							<h6 class="title_ru">Аудитория покупателей</h6>
+							<h6 class="title_cn">鞋类类型</h6>
+							</label>
+							<div class="col-sm-9 _content">
+								<!-- 单个checkbox模块-->
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox"  name="about_shoes-footwear_type-男鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Мужская<i class="select_name_cn">(男鞋)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox"  name="about_shoes-footwear_type-女鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Женская<i class="select_name_cn">(女鞋)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox" name="about_shoes-footwear_type-童鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Детская<i class="select_name_cn">(童鞋)</i></span>
+                                 </label>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="form-group subordinate_season">
+							<label class="col-sm-3 control-label label_title">
+							<h6 class="title_ru">Сезон</h6>
+							<h6 class="title_cn">鞋类所属季节</h6>
+							</label>
+							<div class="col-sm-9 _content">
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox"  name="about_shoes-subordinate_season-夏季">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Лето<i class="select_name_cn">(夏季)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox"  name="about_shoes-subordinate_season-春秋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Демисезон<i class="select_name_cn">(春秋)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox" name="about_shoes-subordinate_season-冬鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Зима<i class="select_name_cn">(冬鞋)</i></span>
+                                 </label>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="form-group footwear_category">
+							<label class="col-sm-3 control-label label_title">
+							<h6 class="title_ru">Категория обуви</h6>
+							<h6 class="title_cn">鞋的品类</h6>
+							</label>
+							<div class="col-sm-9 _content">
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox"  name="about_shoes-footwear_category-家居">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Домашняя<i class="select_name_cn">(家居)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox"  name="about_shoes-footwear_category-日常鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Повседневная<i class="select_name_cn">(日常鞋)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox" name="about_shoes-footwear_category-节日鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Праздничная<i class="select_name_cn">(节日鞋)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox" name="about_shoes-footwear_category-舞蹈鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Для танцев<i class="select_name_cn">(舞蹈鞋)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox" name="about_shoes-footwear_category-运动鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Спортивная<i class="select_name_cn">(运动鞋)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox" name="about_shoes-footwear_category-带灯的鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Со светодиодами<i class="select_name_cn">(带灯的鞋)</i></span>
+                                 </label>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="form-group shoe_styles">
+							<label class="col-sm-3 control-label label_title">
+							<h6 class="title_ru">Виды обуви</h6>
+							<h6 class="title_cn">鞋类款式</h6>
+							</label>
+							<div class="col-sm-9 _content">
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox"  name="about_shoes-shoe_styles-瓢鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Балетки<i class="select_name_cn">(瓢鞋)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox"  name="about_shoes-shoe_styles-系带布鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Кеды<i class="select_name_cn">(系带布鞋)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox" name="about_shoes-shoe_styles-人字拖">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Сланцы<i class="select_name_cn">(人字拖)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox" name="about_shoes-shoe_styles-系带高靴马丁鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Берцы<i class="select_name_cn">(系带高靴，马丁鞋)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox"  name="about_shoes-shoe_styles-3厘米以上高跟平底鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Криперы<i class="select_name_cn">(3厘米以上高跟平底鞋)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox"  name="about_shoes-shoe_styles-无系带布鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Слипоны<i class="select_name_cn">(无系带布鞋)</i></span>
+                                 </label>
+								</div>
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox" name="about_shoes-shoe_styles-凉鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Босоножки<i class="select_name_cn">(凉鞋)</i></span>
+                                 </label>
+								</div>
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox" name="about_shoes-shoe_styles-运动鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Кроссовки<i class="select_name_cn">(运动鞋)</i></span>
+                                 </label>
+								</div>
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox"  name="about_shoes-shoe_styles-内增高鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Сникерсы<i class="select_name_cn">(内增高鞋)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox" name="about_shoes-shoe_styles-过踝高跟鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Ботильоны<i class="select_name_cn">(过踝高跟鞋)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox" name="about_shoes-shoe_styles-休闲鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Мокасины<i class="select_name_cn">(休闲鞋)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox"  name="about_shoes-shoe_styles-防水布料胶底靴">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Сноубутсы<i class="select_name_cn">(防水布料胶底靴)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox" name="about_shoes-shoe_styles-齐踝皮鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Ботинки<i class="select_name_cn">(齐踝皮鞋)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox"  name="about_shoes-shoe_styles-婴儿软底鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Пинетки<i class="select_name_cn">(婴儿软底鞋)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox"  name="about_shoes-shoe_styles-家居拖鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Тапочки<i class="select_name_cn">(家居拖鞋)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox" name="about_shoes-shoe_styles-过膝靴">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Ботфорты<i class="select_name_cn">(过膝靴)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox"  name="about_shoes-shoe_styles-低帮单鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Полуботинки<i class="select_name_cn">(低帮单鞋)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox" name="about_shoes-shoe_styles-单鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Туфли<i class="select_name_cn">(单鞋)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox" name="about_shoes-shoe_styles-纯毛毛毡鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Валенки<i class="select_name_cn">(纯毛毛毡鞋)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox" name="about_shoes-shoe_styles-半靴">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Полусапоги<i class="select_name_cn">(半靴)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox" name="about_shoes-shoe_styles-UGG款雪地靴">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Угги<i class="select_name_cn">(UGG款雪地靴)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox"  name="about_shoes-shoe_styles-鞋套">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Галоши<i class="select_name_cn">(鞋套)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox"  name="about_shoes-shoe_styles-带后跟凉拖鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Сабо<i class="select_name_cn">(带后跟凉拖鞋)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox" name="about_shoes-shoe_styles-舞蹈鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Чешки<i class="select_name_cn">(舞蹈鞋)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox"  name="about_shoes-shoe_styles-雪地棉">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Дутики<i class="select_name_cn">(雪地棉)</i></span>
+                                 </label>
+								</div>
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox" name="about_shoes-shoe_styles-带细带的平跟凉鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Сандалии<i class="select_name_cn">(带细带的平跟凉鞋)</i></span>
+                                 </label>
+								</div>
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox" name="about_shoes-shoe_styles-帆布鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Эспадрильи<i class="select_name_cn">(帆布鞋)</i></span>
+                                 </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox"  name="about_shoes-shoe_styles-朋克鞋">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Казаки<i class="select_name_cn">(朋克鞋)</i></span>
+                                 </label>
+								</div>
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox"  name="about_shoes-shoe_styles-靴子">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Сапоги<i class="select_name_cn">(靴子)</i></span>
+                                 </label>
+								</div>
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4">
+									<label>
+                                     <input type="checkbox" name="about_shoes-shoe_styles-其他">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Прочие<i class="select_name_cn">(其他)</i></span>
+                                 </label>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="form-group shoe_material">
+							<label class="col-sm-3 control-label label_title">
+							<h6 class="title_ru">Материалы верха обуви</h6>
+							<h6 class="title_cn">鞋面材质</h6>
+							</label>
+							<div class="col-sm-9 _content">
+								<!-- 单个checkbox模块-->
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4 item">
+									<div class="col-sx-12 control-label label_title">
+										<h6 class="title_ru">Искусственные материалы:</h6>
+										<h6 class="title_cn">(革料)</h6>
+									</div>
+									<label class="col-xs-12">
+                                     <input type="checkbox" name="about_shoes-shoe_material-leather_material-PU">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">PU<i class="select_name_cn"></i></span>
+                                    </label>
+									<label class="col-xs-12">
+                                     <input type="checkbox"  name="about_shoes-shoe_material-leather_material-EVA">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">EVA<i class="select_name_cn"></i></span>
+                                    </label>
+									<label class="col-xs-12">
+                                     <input type="checkbox" name="about_shoes-shoe_material-leather_material-丝绒">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Велюр<i class="select_name_cn">(丝绒)</i></span>
+                                    </label>
+									<label class="col-xs-12">
+                                     <input type="checkbox" name="about_shoes-shoe_material-leather_material-反毛">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Замша<i class="select_name_cn">(反毛)</i></span>
+                                    </label>
+									<label class="col-xs-12">
+                                     <input type="checkbox"  name="about_shoes-shoe_material-leather_material-漆皮">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Лак<i class="select_name_cn">(漆皮)</i></span>
+                                    </label>
+									<label class="col-xs-12">
+                                     <input type="checkbox" name="about_shoes-shoe_material-leather_material-天然人工混合材质">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">материалы<i class="select_name_cn">(天然人工混合材质)</i></span>
+                                    </label>
+									<label class="col-xs-12">
+                                     <input type="checkbox" name="about_shoes-shoe_material-leather_material-磨砂">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Нубук<i class="select_name_cn">(磨砂)</i></span>
+                                    </label>
+									<label class="col-xs-12">
+                                     <input type="checkbox" name="about_shoes-shoe_material-leather_material-PVC">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">PVC<i class="select_name_cn"></i></span>
+                                    </label>
+									<label class="col-xs-12">
+                                     <input type="checkbox"  name="about_shoes-shoe_material-leather_material-橡胶">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Резина<i class="select_name_cn">(橡胶)</i></span>
+                                    </label>
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4 item">
+									<div class="col-sx-12 control-label label_title">
+										<h6 class="title_ru">Атуральные материалы:</h6>
+										<h6 class="title_cn">(真皮)</h6>
+									</div>
+									<label class="col-xs-12">
+                                     <input type="checkbox"  name="about_shoes-shoe_material-lenuine_leather-漆皮">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Лак<i class="select_name_cn">(漆皮)</i></span>
+                                    </label>
+									<label class="col-xs-12">
+                                     <input type="checkbox" name="about_shoes-shoe_material-lenuine_leather-反毛皮">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Замша<i class="select_name_cn">(反毛皮)</i></span>
+                                    </label>
+									<label class="col-xs-12">
+                                     <input type="checkbox"  name="about_shoes-shoe_material-lenuine_leather-真皮">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Кожа<i class="select_name_cn">(真皮)</i></span>
+                                    </label>
+									<label class="col-xs-12">
+                                     <input type="checkbox" name="about_shoes-shoe_material-lenuine_leather-移磨革">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Прессованные<i class="select_name_cn">(移磨革)</i></span>
+                                    </label>
+									<label class="col-xs-12">
+                                     <input type="checkbox" name="about_shoes-shoe_material-lenuine_leather-磨砂">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Нубук<i class="select_name_cn">(磨砂)</i></span>
+                                    </label>
+									<label class="col-xs-12">
+                                     <input type="checkbox"  name="about_shoes-shoe_material-lenuine_leather-毛">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Шерсть<i class="select_name_cn">(毛)</i></span>
+                                    </label>
+									<label class="col-xs-12">
+                                     <input type="checkbox"     name="about_shoes-shoe_material-lenuine_leather-毡子">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Войлок<i class="select_name_cn">(毡子)</i></span>
+                                    </label>
+
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4 item cloth_material">
+									<div class="col-sx-12 control-label label_title">
+										<h6 class="title_ru">Текстильные материалы:</h6>
+										<h6 class="title_cn">(布料)</h6>
+									</div>
+									<label class="col-xs-12">
+                                     <input type="checkbox" name="about_shoes-shoe_material-cloth_material-纺织物">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Текстиль<i class="select_name_cn">(纺织物)</i></span>
+                                    </label>
+									<label class="col-xs-12">
+                                     <input type="checkbox" name="about_shoes-shoe_material-cloth_material-弹性布料">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Эластичный<i class="select_name_cn">(弹性布料)</i></span>
+                                    </label>
+
+								</div>
+
+								<div class="checkbox col-xs-12 col-sm-6 col-md-4 item composite_materials">
+									<div class="col-sx-12 control-label label_title">
+										<h6 class="title_ru">Комбинорованные материалы:</h6>
+										<h6 class="title_cn">(混合材料)</h6>
+									</div>
+									<label class="col-xs-12">
+                                     <input type="checkbox" name="about_shoes-shoe_material-composite_materials-天然材质">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Натуральные<i class="select_name_cn">(天然材质)</i></span>
+                                    </label>
+									<label class="col-xs-12">
+                                     <input type="checkbox" name="about_shoes-shoe_material-composite_materials-薄膜材质">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Мембрана<i class="select_name_cn">(薄膜材质)</i></span>
+                                    </label>
+									<label class="col-xs-12">
+                                     <input type="checkbox" name="about_shoes-shoe_material-composite_materials-天然人工合成材质">
+                                     <span class="checkbox-material">
+                                     <span class="check"></span>
+                                     </span>
+                                     <span class="select_name">Натуральные Натуральные и искусственные<i class="select_name_cn">(天然人工合成材质)</i></span>
+                                    </label>
+
+								</div>
+
+							</div>
+						</div>
+
+						<div class="form-group settlement_price">
+							<label class="col-xs-12 col-sm-3 control-label label_title">
+							<h6 class="title_ru">Цена</h6>
+							<h6 class="title_cn">预计参展鞋款平均结算价</h6>
+							</label>
+							<div class="col-xs-12 col-sm-9 _content">
+								<input type="text" value="" class="form-control" placeholder="请输入平均结算价" name="about_shoes-settlement_price">
+							</div>
+						</div>
+
+						<div class="form-group _remark ">
+							<label class="col-sm-12 control-label label_title">
+							<h6 class="title_ru">Примечание: Каждый владелец бренда должен предоставить 2-4 образца обуви, и сфотографировать в соответствии с определенными требованиями.</h6>
+							<h6 class="title_cn"><strong>备注</strong>：每个品牌商需要提供2-4款代表性鞋样并按一定展示要求拍摄照片</h6>
+							</label>
+						</div>
+
+					</li>
+					<li class="list-group-item opinion_suggestion">
+						<h3>您的意见与建议 / Пожелания:</h3>
+						<div class="form-group ">
+							<textarea class="form-control textarea_box" value="" style="resize:none;overflow-y: hidden;" placeholder="请输入您的意见" name="opinion_suggestion"></textarea>
+						</div>
+					</li>
+				</ul>
+				<div class="col-sx-12 col-md-4 col-md-offset-4 sub_box">
+					<a class="btn btn-primary btn-block _sub">完成并提交</a>
+				</div>
+			</form>
+
+		</div>
+
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<script type="text/javascript" src="js/questionnaire.js"></script>
+		<script type="text/javascript" src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js">
+		</script>
+		<!-- 包括所有已编译的插件 -->
+		<!--<script src="js/bootstrap.min.js"></script>-->
+	</body>
+
+</html>

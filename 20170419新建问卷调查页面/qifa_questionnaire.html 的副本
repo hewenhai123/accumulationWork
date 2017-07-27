@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>启发调查问卷</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/questionnaire.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="navbar">
+			<div class="col-xs-12 col-md-8 col-md-offset-2 qifa_head_inner" style="border: 1px solid red;">
+				<div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-8 col-lg-offset-2" style="border: 1px solid blue;">
+					<a href="" class="qifa_logo ">
+						<img src="img/logo1.png " />
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="bg"></div>
+		<div id=" " class="container " style="border: 1px solid red; ">
+			<form class="form-horizontal" role="form">
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h3>关于品牌/</h5>
+						<div class="form-group">
+							<label for="firstname" class="col-sm-4 control-label label_title">
+							<h6 class="title_ru">Описание бренда</h6>
+							<h6 class="title_cn">名称和标识图形</h6>
+							<p class="desc">(包括由品牌名称图形衍生出的标识和试用中的名称和标识图形)</p>
+							</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="firstname" placeholder="请输入名字">
+							</div>
+						</div>
+					</li>
+					<li class="list-group-item">免费 Window 空间托管</li>
+					<li class="list-group-item">图像的数量</li>
+					<li class="list-group-item">
+						<span class="badge">新</span> 24*7 支持
+					</li>
+					<li class="list-group-item">每年更新成本</li>
+					<li class="list-group-item">
+						<span class="badge">新</span> 折扣优惠
+					</li>
+				</ul>
+
+			</form>
+
+		</div>
+
+	</body>
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js "></script>
+
+</html>
