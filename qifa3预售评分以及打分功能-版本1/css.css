@@ -1,0 +1,107 @@
+/*評分功能樣式--start --wenhai*/
+.star_box,.star_box h6{
+    font-size: 14px;
+}
+.star_box h6{
+    margin: 0px;
+}
+.star_box li{
+    white-space: nowrap;
+}
+.star_box .star_head,
+.star_box .star_inner,
+.star_box .star_score,
+.star_box .star_head_scoring,
+.star_box .star_inner_scoring,
+.star_box .star_score_rate{
+    display: inline-block;
+    line-height: 24px;
+}
+.star_box .star_head{
+    width: 120px;
+}
+.star_box .star_inner ,.star_box .star_inner_scoring{
+    padding: 0 10px;
+    position: relative;
+    top: 2px;
+}
+.star_box .star_inner span,.star_box .star_inner_scoring span{
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    /*border: 1px solid red;*/
+    background: url("../img/star.jpg") no-repeat 0 0;
+}
+.star_box .star_inner_scoring .star_default,.star_box .star_inner_scoring .up20{
+    background-position: 0 -20px;
+}
+.star_box .star_inner .up60,.star_box .star_inner_scoring .up60{
+    background-position: 0 -60px;
+}
+.star_box .star_inner .up40,.star_box .star_inner_scoring .up40{
+    background-position: 0 -40px;
+}
+.star_box_scoring{
+    display: none;
+    position: absolute;
+    top:50%;
+    left:50%;
+    width: 400px;
+    height: 220px;
+    background: #ffffff;
+    /*border-radius: 10px;*/
+    margin: -100px 0 0 -200px;
+}
+.star_box_mark{
+    position:fixed;
+    z-index: 9000;
+    top:0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    background: rgba(0,0,0,.3);
+
+}
+.star_box_scoring {
+    text-align: right;
+}
+.star_box_scoring .closeIcon{
+    position: relative;
+    top: 6px;
+    right: 10px;
+}
+.star_box_scoring .closeIcon:hover{
+    cursor: pointer;
+    color:#ffa601;
+}
+.star_box_scoring .star_list{
+    padding: 30px 80px 34px 0;
+}
+.star_box_scoring .star_list li{
+    position: relative;
+}
+.star_box_scoring .grade_btn{
+    text-align: center;
+}
+.star_box_scoring .grade_btn .btn {
+    /*padding:0 10px;*/
+}
+.star_inner_scoring span:hover{
+    cursor: pointer;
+}
+.star_box_scoring .star_prompt_message{
+    text-align: center;
+}
+.star_box_scoring .padding_reset{
+    padding: 50px 0 20px 0;
+}
+.star_box_scoring .star_war{
+    position: absolute;
+    right: -46px;
+    top: 4px;
+    color:red;
+}
+
+/*評分功能樣式--end --wenhai*/

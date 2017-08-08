@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="mod">
+    <div class="mod-content" id="ajax_load_comment">
+        <div class="comment-list">
+            打發的所發生的
+            <{include file='site/product/tab/discuss/init.html'}>
+            <div class="satisfaction_to_show">
+                <!--<li><i class=""></i></li>-->
+                <div class="star_box">
+                    <ul class="star_list">
+                        <li>
+                            <h6 class="star_head">评分维度1</h6>
+                            <div class="star_inner">
+                                <span></span><span></span><span></span><span></span><span></span>
+                            </div>
+                            <span class="star_score">3.0</span>
+                        </li>
+                        <li>
+                            <h6 class="star_head">评分维度2</h6>
+                            <div class="star_inner">
+                                <span></span><span></span><span></span><span></span><span></span>
+                            </div>
+                            <span class="star_score">3.0</span>
+                        </li>
+                        <li>
+                            <h6 class="star_head">评分维度3</h6>
+                            <div class="star_inner">
+                                <span></span><span></span><span></span><span></span><span></span>
+                            </div>
+                            <span class="star_score">3.0</span>
+                        </li>
+                        <li>
+                            <h6 class="star_head">评分维度4</h6>
+                            <div class="star_inner">
+                                <span></span><span></span><span></span><span></span><span></span>
+                            </div>
+                            <span class="star_score">3.0</span>
+                        </li>
+                        <li>
+                            <h6 class="star_head">评分维度5</h6>
+                            <div class="star_inner">
+                                <span></span><span></span><span></span><span></span><span></span>
+                            </div>
+                            <span class="star_score">3.0</span>
+                        </li>
+                        <li>
+                            <h6 class="star_head">评分维度6</h6>
+                            <div class="star_inner">
+                                <span></span><span></span><span></span><span></span><span></span>
+                            </div>
+                            <span class="star_score">3.0</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <a href="javascript:;" class="btn btn-primary grading_btn ">点击打分</a>
+            <div class="">
+                <div class="star_box star_box_scoring">
+                    <ul class="star_list">
+                        <li>
+                            <h6 class="star_head_scoring">我是標題</h6>
+                            <div class="star_inner_scoring">
+                                <span class="star_default"></span>
+                                <span class="star_default"></span>
+                                <span class="star_default"></span>
+                                <span class="star_default"></span>
+                                <span class="star_default"></span>
+                            </div>
+                            <span class="star_score_rate">3.0</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    jQuery(function () {
+        var $ = jQuery;
+        var res = {//初始化ajax以及数据更新返回的数据格式
+            status:true,//true 提交成绩，false 以及提交过了
+            score_data: [
+                {id: 'dimension1', name: "评分6维度1", score: 23, total: 70},
+                {id: 'dimension2', name: "评分维度2", score: 43, total:  70},
+                {id: 'dimension3', name: "评分维=-度3", score: 55, total:  70},
+                {id: 'dimension4', name: "评分w维度4", score: 100, total: 300},
+                {id: 'dimension5', name: "评分维f度5", score: 120, total: 300},
+                {id: 'dimension6', name: "评分维度6", score: 58, total: 300}
+            ]
+        };
+
+        starSet = {
+            data: "",//数据
+            updataStatus: false,
+            initAjaxUrl: "/index.php",//返回值见82行
+            updataAjaxUrl: "/index.php",//返回值数据格式 {status：true或者false}
+            tempData: "",
+            starBox: "",//维度评分盒子（维度评分模块）
+            starInnerList: "",//维度评分内盒子（维度评分模块）
+            curStarHeadList: "",
+            gradingBtn: "",//点击打分按钮（维度评分模块）
+            scoringBox: "",//打分模块（打分模块）
+            closeIcon: "",//关闭按钮
+            scoringSubmit: "",
+            init: function () {
+                this.starBox = $(".star_box");
+                this.starInnerList = this.starBox.find(".star_inner");
+                this.gradingBtn = $(".grading_btn");
+                this.ajax(this.initAjaxUrl, {aa: "dddd"}, this.initAjaxCallBack);
+                this.scoreProcessing(res);
+                this.grading();
+            },
+            ajax: function (Url, dataJson, callback) {
+                var that = this;
+                $.ajax({
+                    url: Url,
+                    type: "post",
+                    data: dataJson,
+                    success: function (res2) {
+                        callback(res, that);
+                    },
+                    error: function (error) {
+                    }
+                })
+            },
+            initAjaxCallBack: function (res, that) {
+                that.scoreProcessing(res);
+                that.data = res;
+            },
+            updataAjaxCallBack: function (res, that) { //这个方法等候台数据返回后调用方法重新设置星星。
+                that.updataStatus = res.status;
+                if (that.updataStatus) {
+                    console.error("ajax成功");
+//                    that.refreshData(that.tempData);
+                    that.scoreProcessing(res);//根据新的数据重新进行计算
+                    that.data = res;
+                    that.prompt("评分成功");
+                } else {
+                    console.error("ajax错误");
+                    //这里可以弹出成功与否的信息
+                    that.prompt("您已经打过分了");
+                }
+            },
+            scoreProcessing: function (data) {//分数的计算（维度评分模块）
+                var that = this,
+                    total = data.total,
+                    scoreList = data.score_data,
+                    score = 0;
+//                that.data = data;
+                for (var i = 0, scoreLength = scoreList.length; i < scoreLength; i++) {
+                    console.log(scoreList);
+                    score = that.digitalFormat(scoreList[i].score /scoreList[i].total * 100, 1);//这里的toatl
+                    score = that.digitalFormat(score / 100 * 5);
+                    that.setStar(score, i, data)
+                }
+            },
+            setStar: function (itemScore, index, data) { //对星星进行设置（维度评分模块）
+                var that = this, temp,
+                    curStarInnerList = that.starInnerList[index],//找到指定行span
+                    $curStarSpanList = $(curStarInnerList).find("span");
+                $(curStarInnerList).prev(".star_head").text(data.score_data[index].name);
+                temp = itemScore > 5 ? 5 : itemScore;
+                temp = String(temp);
+                $(curStarInnerList).next(".star_score").text(temp.indexOf(".") == -1 ? temp + ".0" : temp);
+                that.setTop($curStarSpanList, "up0");
+                $curStarSpanList.each(function (i) {
+                    temp = itemScore.split(".");
+                    temp[1] = temp[1] ? temp[1] : 0;
+                    if (i + 1 <= temp[0]) {
+                        that.setTop(this, "up60");
+                    }
+                    if (itemScore * 1 < 1 && i == 0) {//对第一颗星进行处理
+                        if (itemScore * 1 > 0.5) {
+                            that.setTop(this, "up40");
+                        }
+                        return
+                    }
+                    if (i + 1 == temp[0] * 1) {//对最后一满颗星
+                        if (temp[1] / 100 > 0.5) { //bug 伴星问题，小于一半还显示
+                            that.setTop($(this).next("span")[0], "up40");
+                        }
+                        return
+                    }
+                });
+            },
+            setTop: function (curEle, addClassName) {//被调用的方法，设置背景星星的top值，用来设置当前星星的状态（维度评分模块）（打分模块）
+                $(curEle).removeClass();
+                $(curEle).addClass(addClassName);
+            },
+            digitalFormat: function (num, places) {//保留两位小数（维度评分模块）
+                places = !places && places != 0 ? 2 : places;
+                if (isNaN(num)) {
+                    return
+                }
+                num = String(num);
+                num.indexOf(".") != -1 ? num = Number(num).toFixed(places) : null;
+                return num
+            },
+            grading: function () {//点击打分按钮生成打分模块（打分模块）
+                var that = this,
+                    nameList = [
+                        {id: 'dimension1', name: "评分6维度1"},
+                        {id: 'dimension2', name: "评分维度2"},
+                        {id: 'dimension3', name: "评分维=-度3"}
+                    ];
+                that.gradingBtn.click(function () {//点击按钮生响应的结构
+                    var str = '<div class="star_box_mark">';
+                    str += '<div class="star_box star_box_scoring">';
+                    str += '<i class="closeIcon iconfont">&#xe635;</i>';
+                    str += '<ul class="star_list">';
+                    for (var i = 0; i < 3; i++) {
+                        str += '<li class=' + nameList[i].id + '><h6 class="star_head_scoring">' + nameList[i].name + '</h6>';
+                        str += '<div class="star_inner_scoring">';
+                        str += '<span class="star_default"></span>';
+                        str += '<span class="star_default"></span>';
+                        str += '<span class="star_default"></span>';
+                        str += '<span class="star_default"></span>';
+                        str += '<span class="star_default"></span></div>';
+                        str += '<span class="star_score_rate">0.0</span></li>';
+                    }
+                    str += '</ul>';
+                    str += '<div class="grade_btn"><a class="btn btn-primary">提交评分</a></div>';
+                    str += '</div></div>';
+                    $("body").append(str);
+                    that.scoringBox = $(".star_box_mark");
+                    that.closeIcon = $(".closeIcon");
+                    that.scoringSubmit = $(".grade_btn");
+                    that.scoringBox.children(".star_box_scoring").css("display", "block");
+                    that.scoring();
+                    that.closeModule();
+                    that.subDataScore();
+                })
+            },
+            scoring: function () {//打分模块(打分模块)
+                var that = this, temp,
+                    liList = that.scoringBox.find("li");
+                liList.each(function (index) {
+                    $(this).find(".star_default").each(function (index) {
+                        $(this).mouseover(function () {
+                            temp = true;
+                            that.setTop($(this).siblings("span"), "up20");
+                            that.setTop($(this), "up60");
+                            that.setTop($(this).prevAll("span"), "up60");
+                            that.scoreCalculation($(this), index + 1);
+                        });
+                        $(this).mouseout(function () {
+                            if (!temp) {
+                                return
+                            }
+                            that.setTop($(this), "up20");
+                            that.setTop($(this).prevAll("span"), "up20");
+                            that.scoreCalculation($(this), 0);
+                            that.resetScore($(this));
+                        });
+                        $(this).click(function () {
+                            temp = false;
+                            $(this).parent(".star_inner_scoring").attr("cur-score", index + 1);
+                            that.setTop($(this).siblings("span"), "up20");
+                            that.setTop($(this), "up60");
+                            that.setTop($(this).prevAll("span"), "up60")
+                        })
+                    })
+                })
+
+            },
+            scoreCalculation: function (curEle, score) {//分数计算(打分模块)
+                var that = this;
+                curEle.parents("li").children(".star_score_rate").text(score + ".0");
+            },
+            resetScore: function (curEle) {//如果点击过了，则使用历史分数重置
+                var that = this,
+                    curScore = curEle.parents(".star_inner_scoring").attr("cur-score");
+                if (curScore) {
+                    curEle.parents(".star_inner_scoring").find("span").each(function (index) {
+                        if (curScore - 1 == index) {
+                            that.setTop($(this).siblings("span"), "up20");
+                            that.setTop($(this), "up60");
+                            that.setTop($(this).prevAll("span"), "up60");
+                            that.scoreCalculation(curEle, curScore);
+                        }
+                    })
+                }
+            },
+            closeModule: function () {//关闭按钮
+                var that = this;
+                that.closeIcon.click(function () {
+                    that.scoringBox.remove();
+                })
+            },
+            subDataScore: function () {//点击提交方法
+                var that = this, cur;
+                that.scoringSubmit.click(function () {
+                    cur = [];
+                    that.scoringBox.find("li").each(function (index) {
+                        var curAttr = $(this).children(".star_inner_scoring").attr("cur-score");
+                        curAttr = parseFloat(curAttr);
+                        cur[cur.length] = {
+                            id: $(this)[0].className,
+                            score: curAttr ? curAttr : 0
+                        };
+                    });
+                    if (that.verification(cur)) {
+                        return //用来阻止ajax
+                    }
+                    var curUserNameCookie = Cookie.read('ULNAME') ? Cookie.read('ULNAME') : '';//Mootools,只针对qifa3
+//                    that.tempData = cur;
+                    that.ajax(that.updataAjaxUrl, {userName: curUserNameCookie,data:cur}, that.updataAjaxCallBack);
+                })
+            },
+            verification: function (score) {
+                var temp = false;
+                for (var i = 0; i < score.length; i++) {
+                    if (score[i].score == 0) {
+                        $("." + score[i].id).children(".star_war").remove();
+                        $("." + score[i].id).append("<p class='star_war'>请打分!</p>");
+                        temp = true;
+                    }
+                    if (score[i].score > 0) {
+                        $("." + score[i].id).children(".star_war").remove();
+                    }
+                }
+                return temp
+            },
+            refreshData: function (curData) { //跟新数据方法（具体分数求和需要发送到后台来进行处理，所以这个方法暂时作废，定制调用）
+                var that = this, scoreId, curDataId, dataScore, curDataScore;
+                for (var i = 0; i < that.data.score_data.length; i++) {
+                    scoreId = that.data.score_data[i].id;
+                    for (var y = 0; y < curData.length; y++) {
+                        curDataId = curData[y].id;
+                        if (scoreId == curDataId) {
+                            that.data.score_data[i].score += curData[y].score;
+                        }
+                    }
+                }
+                that.data.total += 1;
+                that.scoreProcessing(that.data);
+            },
+            getCookie: function (name) {//获取cookie
+                var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)"); //正则匹配
+                if (arr = document.cookie.match(reg)) {
+                    return decodeURI(arr[2])
+                }
+                else {
+                    return null;
+                }
+            },
+            prompt: function (message) { //错误提示功能
+                var that = this;
+                that.scoringBox.find(".star_list").addClass("padding_reset");
+                that.scoringBox.find(".star_list").html("<li class='star_prompt_message'>" + message + "</li>");
+                that.scoringSubmit.remove();
+                setTimeout(function () {
+                    that.scoringBox.remove();
+                }, 5000);
+            }
+        };
+        starSet.init();
+    })
+
+
+</script>
+
+</body>
+</html>
