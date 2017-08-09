@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .yulan {
+            cursor: pointer;
+        }
+
+        .scanning {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .scanning-mark-icon {
+            font-style: normal;
+            font-size: 30px;
+            color: #ccc;
+        }
+
+        .scanning-mark-icon:hover {
+            color: #fff;
+        }
+
+        .scanning-cont {
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -15px;
+            margin-left: -15px;
+        }
+
+        .scanning-mark {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #000000;
+            opacity: .6;
+        }
+
+        .icon-off {
+            padding: 3px;
+            cursor: pointer;
+            position: fixed;
+            left: 56%;
+            top: 22%;
+            font-size: 30px;
+            font-style: normal;
+            color: #fff;
+            /*background: red;*/
+        }
+
+        .icon-off:hover {
+            color: red;
+        }
+
+        .imgCont {
+            margin: 0 auto;
+            display: block;
+            position: absolute;
+            top: 50%;
+            background: #FFFFFF;
+            z-index: 10000;
+            overflow: hidden;
+        }
+
+        .imgCont img {
+            width: 100%;
+
+        }
+
+        .imgMark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+        }
+
+    </style>
+</head>
+<body>
+<p class="def_has">
+    <span class="fl edup">已上传</span>
+    <span class="scanning fl"><img class="yulan" data-id="$model->trade_img" src="/storage/image/201707/1499071216799.png"><div class="scanning-box" style="display: none;"><div class="scanning-mark"></div><div class="scanning-cont"><i class="scanning-mark-icon" data-icon=""></i></div></div></span>
+    <!--<a class="delimg" href="javascript:;">删除</a>-->
+</p>
+
+
+
+</body>
+<script type="text/javascript">
+
+    //    图片预览功能
+    var str = "<div class='imgMark' style='display: none'><div class='imgCont'><img class='decImg' src='' alt=''></div><i class='icon-off' >×</i></div>";
+    $("body").append(str);
+    var str = "<div class='scanning-box' style='display: none'><div class='scanning-mark' ></div><div class='scanning-cont'><i class='scanning-mark-icon' data-icon='&#xe091;'></div></i></div>";
+    $(".yulan").parents(".scanning").append(str);
+    $(".scanning-box").click(function (e) {
+        $(".scroll-to-top").css("z-index", -20);
+        document.documentElement.style.overflowY = 'hidden';
+        $(".imgMark").height(pageHeight());
+        $(".imgMark").width(pageWidth());
+        var src = $(this).parents(".scanning").find(".yulan")[0].getAttribute("src");
+        $(".imgMark").find("img").attr("src", src);
+        var scroTop = document.documentElement.scrollTop || document.body.scrollTop;
+        var winHeight = document.documentElement.clientHeight;
+        var winWidth = document.documentElement.clientWidth;
+        var contW = $(".imgCont").find("img")[0].width;
+        var contH = $(".imgCont").find("img")[0].height;
+        if ((contW > winWidth / 2) && contH < winHeight) {
+            $(".imgCont").width(winWidth / 2);
+            $(".imgCont").height($(".imgCont").width() / contW * contH);
+            set();
+            return;
+        }
+        if ((contH > winHeight / 2) && contW < winWidth) {
+            $(".imgCont").height(winHeight / 1.2);
+            $(".imgCont").width($(".imgCont").height() / contH * contW);
+            set();
+            return;
+        }
+        if ((contW < winWidth / 2) && contH < winHeight) {
+            $(".imgCont").width(winWidth / 3);
+            $(".imgCont").height($(".imgCont").width() / contW * contH);
+            set();
+            return;
+        }
+        if (contW > winWidth && contH > winHeight) {
+            $(".imgCont").height(winHeight / 1.2);
+            $(".imgCont").width($(".imgCont").height() / contH * contW);
+            set();
+            return;
+        }
+        function set() {
+            $(".imgCont").css("left", (winWidth - $(".imgCont").width()) / 2);
+            $(".imgCont").css("top", (winHeight - $(".imgCont").height()) / 2 + scroTop);
+            $(".imgMark").css("display", "block");
+            $(".icon-off").css("left", (winWidth + $(".imgCont").width()) / 2);
+            $(".icon-off").css("top", (winHeight - $(".imgCont").height()) / 2);
+        }
+
+
+    });
+    $(".icon-off,.imgMark,.decImg").click(function () {
+        $(".imgMark").css("display", "none");
+        $(".scroll-to-top").css("z-index", 10001);
+        document.documentElement.style.overflowY = 'visible';
+    });
+
+    /* 当前页面高度 */
+    function pageHeight() {
+        return document.body.scrollHeight;
+    }
+
+    /* 当前页面宽度 */
+    function pageWidth() {
+        return document.body.scrollWidth;
+    }
+
+    $(".yulan").parents(".scanning").each(function () {
+        $(this).mouseenter(function () {
+            $(this).find(".scanning-box").css("display", "block");
+            //$(this).find (".scanning-mark-icon").css("color","#ccc")
+        }).mouseleave(function () {
+            $(this).find(".scanning-box").css("display", "none");
+            //$(this).find(".scanning-mark-icon").css("color","#000")
+
+        })
+    });
+
+</script>
+</html>
